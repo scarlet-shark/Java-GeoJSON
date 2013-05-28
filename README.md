@@ -7,7 +7,11 @@ A Java GeoJSON parser and eventual builder.
 
   The JsonParser class can read in basic types of GeoJson including point, linestring, and polygon.
   
-## Usage:
+### Usage:
 
-  JsonObject jRootObject = JsonParser.parseFile(File);
+    JsonObject jRootObject = JsonParser.parseFile(File);
+  
+    or
+  
+    JsonObject jRootObject = JsonParser.parseObject(String);
   

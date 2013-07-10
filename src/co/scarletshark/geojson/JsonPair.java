@@ -60,6 +60,16 @@ public class JsonPair {
     }     
     
     /**
+     * Creates a pair with the given Name and JsonValue.
+     * 
+     * @param name 
+     */
+    public JsonPair(String name, JsonValue value) {
+        this.name  = name;
+        this.value = value;
+    }         
+    
+    /**
      * Creates a pair with the given Name and String value.
      * 
      * @param name 

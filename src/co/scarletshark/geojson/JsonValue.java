@@ -141,9 +141,13 @@ public class JsonValue {
 
                 sb.append("[");
 
-                for (Object o: array) 
-                    sb.append(o.toString());                
-
+                for (int i = 0; i < array.length; i++) { 
+                    sb.append(array[i].toString());                
+                    
+                    if (i < (array.length - 1))
+                        sb.append(", ");    
+                }
+                
                 sb.append("]");
             
             

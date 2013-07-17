@@ -55,7 +55,7 @@ public class JsonPoint extends GeoJsonObject {
         sb.append(getIndent(indent));
         sb.append("\"type\":");
         sb.append("\t");
-        sb.append("\"Point\"");
+        sb.append("\"Point\",");
         sb.append("\n");
         
         sb.append(getIndent(indent));

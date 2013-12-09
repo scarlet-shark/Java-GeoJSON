@@ -293,6 +293,20 @@ public class JsonParser {
                             jCoordinates    = new JsonCoordinate[1];                        
                             jCoordinates[0] = new JsonCoordinate(array);
                             break;
+                        } else if (obj instanceof String) {
+                            //This shouldn't be a string, but if it is convert it to a double.
+                            jCoordinates      = new JsonCoordinate[1]; 
+                            Object[] newArray = new Object[array.length];
+                            
+                            try {
+                                for (int i = 0; i < array.length; i++)
+                                    newArray[i] = Double.parseDouble((String) array[i]);
+                                
+                                jCoordinates[0] = new JsonCoordinate(newArray);
+                                break;
+                            } catch (Exception e) {
+                                System.err.println("Error in JsonParser.parseCoordinates(JsonPair) - Cannot Convert Coordinate from String.");
+                            }
                         }
                     }  //end for loop                
                 }    

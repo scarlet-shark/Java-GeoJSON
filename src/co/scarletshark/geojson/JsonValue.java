@@ -212,18 +212,22 @@ public class JsonValue {
             return ((Boolean) value).toString();                    
         } else if (valueType.equals(COORDINATES)) {
             return toCoodinateString();
+        } else if (valueType.equals(LINESTRING)) {
+            return ((JsonLineString) value).toString(indent + 1); 
         } else if (valueType.equals(NUMBER)) {
             return ((Double) value).toString();    
         } else if (valueType.equals(OBJECT)) {
             return ((JsonObject) value).toString(indent + 1);
         } else if (valueType.equals(POINT)) {
-            return ((JsonPoint) value).toString(indent + 1);            
+            return ((JsonPoint) value).toString(indent + 1);      
+        } else if (valueType.equals(POLYGON)) {
+            return ((JsonPolygon) value).toString(indent + 1); 
         } else if (valueType.equals(STRING)) {
             String sVal = (String) value;       
-            return "\"" + sVal + "\"";         
+            return "\"" + sVal + "\"";                      
         } else {
             return value.toString();
-        }
+        }       
     }    
     
 

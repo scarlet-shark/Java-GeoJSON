@@ -172,10 +172,12 @@ public class JsonObject {
         for (int i = 0; i < this.pairs.size(); i++) {
             JsonPair jp = this.pairs.get(i);
             
-            if (i > 0)
-                sb.append(",\n");
-            
-            sb.append(jp.toString(indent + 1));
+            if (jp != null) {
+                if (i > 0)
+                    sb.append(",\n");
+
+                sb.append(jp.toString(indent + 1));
+            }
         }
         
         sb.append("\n");

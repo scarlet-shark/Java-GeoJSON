@@ -43,6 +43,7 @@ public class JsonPair {
      * Creates a pair with the given Name and boolean value.
      * 
      * @param name 
+     * @param value 
      */
     public JsonPair(String name, boolean value) {
         this.name  = name;
@@ -106,7 +107,29 @@ public class JsonPair {
     public JsonPair(String name, JsonObject value) {
         this.name  = name;
         this.value = new JsonValue(value, JsonValue.OBJECT);
-    }      
+    }        
+    
+    /**
+     * Creates a pair with the given Name and JsonCoordinate value.
+     * 
+     * @param name 
+     * @param value 
+     */
+    public JsonPair(String name, JsonCoordinate value) {
+        this.name  = name;
+        this.value = new JsonValue(value, JsonValue.COORDINATES);
+    }     
+    
+    /**
+     * Creates a pair with the given Name and JsonCoordinate value.
+     * 
+     * @param name 
+     * @param value 
+     */
+    public JsonPair(String name, JsonCoordinate[] value) {
+        this.name  = name;
+        this.value = new JsonValue(value, JsonValue.COORDINATES);
+    }       
     
     /**
      * Creates a pair with the given Name and Array value.
@@ -116,17 +139,7 @@ public class JsonPair {
     public JsonPair(String name, Object[] value) {
         this.name  = name;
         this.value = new JsonValue(value, JsonValue.ARRAY);
-    }      
-    
-    /**
-     * Creates a pair with the given Name and JsonCoordinate value.
-     * 
-     * @param name 
-     */
-    public JsonPair(String name, JsonCoordinate value) {
-        this.name  = name;
-        this.value = new JsonValue(value, JsonValue.COORDINATES);
-    }     
+    }        
     
     @Override
     public boolean equals(Object obj) {
@@ -255,7 +268,7 @@ public class JsonPair {
         sb.append("\": ");        
 
         if (value != null) {
-            sb.append(value.toString());
+            sb.append(value.toString(indent + 1));
         } else {
             sb.append("NULL");
         }
